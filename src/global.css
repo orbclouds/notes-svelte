@@ -4,10 +4,86 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   line-height: 1.15;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-size: 80%;
+}
+
+@media only screen and (min-width: 414px) {
+  body {
+    font-size: 100%;
+  }
+}
+
+button {
+  font: inherit;
+  color: white;
+  appearance: none;
+  background: #342ead;
+  border: solid 2px #342ead;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: background 0.1s cubic-bezier(0.25, 0.1, 0.25, 1),
+    color 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+button:hover {
+  color: #342ead;
+  background: white;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+  color: inherit;
+  opacity: 0.56;
+  text-decoration: underline;
+  transition: opacity 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+a:hover {
+  opacity: 1;
+}
+
+label {
+  font-weight: 500;
+  font-size: 0.9em;
+  letter-spacing: 0.035em;
+  opacity: 0.72;
+}
+
+input,
+textarea {
+  appearance: none;
+  border: solid 1px;
+  border-color: rgba(0, 0, 0, 0);
+  transition: border 0.1s cubic-bezier(0.25, 0.1, 0.25, 1),
+    background 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  background: rgba(0, 0, 0, 0.01);
+  font: inherit;
+  font-family: "courier new";
+  border-radius: 4px;
+  resize: none;
+  padding: 16px;
+  width: 100%;
+  margin: 16px 0 0;
+}
+
+input:hover,
+textarea:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+input:focus,
+textarea:focus {
+  background: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0.02);
 }
