@@ -1,23 +1,37 @@
 <script lang="ts">
-  import { Link, navigate } from "svelte-routing";
-  import DOMPurify from "dompurify";
-  import marked from "marked";
+  import {
+    Link,
+    navigate,
+  } from 'svelte-routing';
+  import DOMPurify from 'dompurify';
+  import marked from 'marked';
 
-  import notes from "@app/notes";
+  import notes from '@app/notes';
 
   export let id: string;
 
-  const note = $notes.contents.find(({ id: noteID }) => id === noteID);
+  const note = $notes.contents.find(
+    ({ id: noteID }) => id === noteID
+  );
 
-  const edit = () => navigate(`/edit/${id}`);
+  const edit = () =>
+    navigate(`/edit/${id}`);
 
-  const goBack = () => navigate("/");
+  const goBack = () => navigate('/');
 </script>
 
 {#if !!note}
   <nav>
-    <button type="button" on:click={goBack}>Back</button>
-    <button type="button" on:click={edit}> Edit </button>
+    <button
+      type="button"
+      on:click={goBack}>Back</button
+    >
+    <button
+      type="button"
+      on:click={edit}
+    >
+      Edit
+    </button>
   </nav>
   <h1>
     Previewing {note.name}
@@ -26,7 +40,9 @@
   <hr />
 
   <article>
-    {@html DOMPurify.sanitize(marked(note.contents))}
+    {@html DOMPurify.sanitize(
+      marked(note.contents)
+    )}
   </article>
 {/if}
 

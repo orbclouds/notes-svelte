@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 interface Note {
   id: string;
@@ -14,25 +14,41 @@ export const DEFAULT_NOTES = {
   contents: [] as Note[],
 };
 
-const notes = writable<Notes>(DEFAULT_NOTES, (set) => {
-  const savedNotes = (() => {
-    const notesFromStorage = localStorage.getItem("notes");
+const notes = writable<Notes>(
+  DEFAULT_NOTES,
+  (set) => {
+    const savedNotes = (() => {
+      const notesFromStorage = localStorage.getItem(
+        'notes'
+      );
 
-    if (!notesFromStorage) return DEFAULT_NOTES;
-    try {
-      return JSON.parse(notesFromStorage);
-    } catch {
-      alert("Couldn't load saved notes, purging!");
-      localStorage.setItem("notes", JSON.stringify(DEFAULT_NOTES));
-      return DEFAULT_NOTES;
-    }
-  })();
+      if (!notesFromStorage)
+        return DEFAULT_NOTES;
+      try {
+        return JSON.parse(
+          notesFromStorage
+        );
+      } catch {
+        alert(
+          "Couldn't load saved notes, purging!"
+        );
+        localStorage.setItem(
+          'notes',
+          JSON.stringify(DEFAULT_NOTES)
+        );
+        return DEFAULT_NOTES;
+      }
+    })();
 
-  set(savedNotes);
-});
+    set(savedNotes);
+  }
+);
 
 notes.subscribe((value) => {
-  localStorage.setItem("notes", JSON.stringify(value));
+  localStorage.setItem(
+    'notes',
+    JSON.stringify(value)
+  );
 });
 
 export default notes;

@@ -1,29 +1,42 @@
 <script lang="ts">
-  import { Link, navigate } from "svelte-routing";
+  import {
+    Link,
+    navigate,
+  } from 'svelte-routing';
 
-  import notes from "@app/notes";
+  import notes from '@app/notes';
 
   export let id: string;
 
-  const note = $notes.contents.find(({ id: noteID }) => id === noteID);
+  const note = $notes.contents.find(
+    ({ id: noteID }) => id === noteID
+  );
 
-  const originalNote = note ? { ...note } : null;
+  const originalNote = note
+    ? { ...note }
+    : null;
 
   $: saved =
     note &&
     originalNote &&
     note.name === originalNote.name &&
-    note.contents === originalNote.contents;
+    note.contents ===
+      originalNote.contents;
 
   const persist = () => {
-    const serialized = JSON.stringify($notes);
-    alert("Your note has saved!");
-    localStorage.setItem("notes", serialized);
+    const serialized = JSON.stringify(
+      $notes
+    );
+    alert('Your note has saved!');
+    localStorage.setItem(
+      'notes',
+      serialized
+    );
   };
 
   const save = () => {
     persist();
-    navigate("/");
+    navigate('/');
   };
 
   const preview = () => {
@@ -33,18 +46,31 @@
 
   const goBack = () => {
     if (!saved) {
-      alert("Save your work first!");
-      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      alert('Save your work first!');
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth',
+      });
       return;
     }
-    navigate("/");
+    navigate('/');
   };
 </script>
 
 {#if note}
   <nav>
-    <button type="button" on:click={goBack}> Back </button>
-    <button type="button" on:click={preview}> Preview </button>
+    <button
+      type="button"
+      on:click={goBack}
+    >
+      Back
+    </button>
+    <button
+      type="button"
+      on:click={preview}
+    >
+      Preview
+    </button>
   </nav>
 
   <h1>
@@ -55,14 +81,25 @@
     <section>
       <label for="name"> Title: </label>
       <br />
-      <input id="name" type="text" bind:value={note.name} />
+      <input
+        id="name"
+        type="text"
+        bind:value={note.name}
+      />
     </section>
     <section>
-      <label for="content"> Content: </label>
+      <label for="content">
+        Content:
+      </label>
       <br />
-      <textarea id="content" bind:value={note.contents} />
+      <textarea
+        id="content"
+        bind:value={note.contents}
+      />
     </section>
-    <button type="submit" role="button"> Save </button>
+    <button type="submit" role="button">
+      Save
+    </button>
   </form>
 {/if}
 

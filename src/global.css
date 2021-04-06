@@ -7,8 +7,11 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.15;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system,
+    BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -30,8 +33,10 @@ button {
   border-radius: 3px;
   cursor: pointer;
   padding: 8px 16px;
-  transition: background 0.1s cubic-bezier(0.25, 0.1, 0.25, 1),
-    color 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: background 0.1s
+      cubic-bezier(0.25, 0.1, 0.25, 1),
+    color 0.1s
+      cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 button:hover {
@@ -46,7 +51,8 @@ a:active {
   color: inherit;
   opacity: 0.56;
   text-decoration: underline;
-  transition: opacity 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: opacity 0.1s
+    cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 a:hover {
@@ -65,11 +71,13 @@ textarea {
   appearance: none;
   border: solid 1px;
   border-color: rgba(0, 0, 0, 0);
-  transition: border 0.1s cubic-bezier(0.25, 0.1, 0.25, 1),
-    background 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: border 0.1s
+      cubic-bezier(0.25, 0.1, 0.25, 1),
+    background 0.1s
+      cubic-bezier(0.25, 0.1, 0.25, 1);
   background: rgba(0, 0, 0, 0.01);
   font: inherit;
-  font-family: "courier new";
+  font-family: 'courier new';
   border-radius: 4px;
   resize: none;
   padding: 16px;
